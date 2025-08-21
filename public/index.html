@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Boom Gate Dashboard (HTTP)</title>
+<style>
+body { font-family: system-ui, Arial, sans-serif; margin: 24px; }
+.row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+input, button, select { font-size: 16px; padding: 8px 12px; }
+table { border-collapse: collapse; width: 100%; margin-top: 16px; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+th { text-align: left; }
+.muted { color: #666; }
+</style>
+</head>
+<body>
+<h1>Boom Gate Control</h1>
+
+
+<div class="row">
+<label>Device ID:</label>
+<input id="deviceId" value="gate-1" />
+
+
+<button id="btnOpen">Open Gate</button>
+<button id="btnVoice">🎤 Voice Command</button>
+<span class="muted" id="voiceStatus"></span>
+</div>
+
+
+<h2>Logs</h2>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Event</th>
+<th>Method</th>
+<th>Device</th>
+</tr>
+</thead>
+<tbody id="logsBody"></tbody>
+</table>
+
+
+<script>
+const logsBody = document.getElementById('logsBody');
+const deviceIdInput = document.getElementById('deviceId');
+const voiceStatus = document.getElementById('voiceStatus');
+
+
+async function loadLogs() {
+const res = await fetch('/api/gate/logs?limit=100');
+const data = await res.json();
+logsBody.innerHTML = data.map(l => `
+<tr>
+<td>${new Date(l.time).toLocaleString()}</td>
+<td>${l.event}</td>
+</html>
