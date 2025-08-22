@@ -66,3 +66,72 @@
   <script src="scripts.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boom Gate Dashboard</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 min-h-screen flex items-center justify-center text-gray-900">
+
+  <div class="max-w-6xl w-full p-6">
+    <!-- Header -->
+    <h1 class="text-5xl font-extrabold mb-10 text-center text-white drop-shadow-lg">🚦 Boom Gate Dashboard</h1>
+
+    <!-- Control Panel -->
+    <div class="backdrop-blur-md bg-white/30 shadow-xl rounded-2xl p-6 mb-10 flex flex-col md:flex-row justify-between items-center gap-6 border border-white/20">
+      <div class="flex gap-4 flex-wrap">
+        <!-- Open Gate Button -->
+        <button id="openBtn" class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-400 to-green-600 text-white font-semibold rounded-xl shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+          Open Gate
+        </button>
+
+        <!-- Close Gate Button -->
+        <button id="closeBtn" class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-400 to-red-600 text-white font-semibold rounded-xl shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m7-7l-7 7 7 7" />
+          </svg>
+          Close Gate
+        </button>
+
+        <!-- Voice Command Button -->
+        <button id="voiceBtn" class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-400 to-blue-600 text-white font-semibold rounded-xl shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 1v11m0 0a4 4 0 004-4H8a4 4 0 004 4zm0 0v4m0 4h.01" />
+          </svg>
+          Voice Command
+        </button>
+      </div>
+
+      <!-- Status Indicator -->
+      <div class="flex items-center gap-3">
+        <span class="font-semibold text-white">Status:</span>
+        <div id="statusIndicator" class="w-6 h-6 rounded-full bg-gray-400 border-2 border-white shadow-md"></div>
+      </div>
+    </div>
+
+    <!-- Recent Logs -->
+    <div class="backdrop-blur-md bg-white/30 border border-white/20 shadow-xl rounded-2xl p-6 mb-10">
+      <h2 class="text-2xl font-bold mb-3 text-white">📜 Recent Logs</h2>
+      <div id="logContainer" class="h-64 overflow-y-auto rounded-lg bg-white/20 backdrop-blur p-3 text-white shadow-inner"></div>
+    </div>
+
+    <!-- Gate Events Chart -->
+    <div class="backdrop-blur-md bg-white/30 border border-white/20 shadow-xl rounded-2xl p-6">
+      <h2 class="text-2xl font-bold mb-3 text-white">📈 Gate Events Timeline</h2>
+      <canvas id="logChart" class="w-full h-64"></canvas>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
