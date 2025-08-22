@@ -1,14 +1,1 @@
-{
-"name": "esp32-boom-gate",
-"version": "1.0.0",
-"type": "module",
-"scripts": {
-"start": "node server.js"
-},
-"dependencies": {
-  
-"cors": "^2.8.5",
-"mongoose": "^7.3.1",
-"express": "^4.19.2"
-}
-}
+{"name":"esp32-boom-gate","version":"1.0.0","type":"module","scripts":{"start":"node server.js"},"dependencies":{"cors":"^2.8.5","express":"^4.21.2","mongoose":"^7.3.1"}}
